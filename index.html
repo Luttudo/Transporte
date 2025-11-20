@@ -337,12 +337,55 @@
         .example-btn:hover {
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
         }
+
+        /* Per-letter animation for the header word "fluxo".
+           Slower timing & stagger so each letter arrives sequentially with a bounce.
+        */
+        .header-section h1 .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(-36px) scale(0.92);
+            animation: letterIn 1200ms cubic-bezier(.2, .9, .3, 1) both;
+            animation-delay: calc(var(--i) * 220ms);
+        }
+
+        @keyframes letterIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-36px) scale(0.92);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(8px) scale(1.06);
+            }
+            85% {
+                transform: translateY(-3px) scale(0.995);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .header-section h1 .letter {
+                animation: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="sidebar">
         <div class="header-section">
-            <h1>fluxo</h1>
+            <h1 aria-label="fluxo">
+                <span class="letter" style="--i:0">f</span>
+                <span class="letter" style="--i:1">l</span>
+                <span class="letter" style="--i:2">u</span>
+                <span class="letter" style="--i:3">x</span>
+                <span class="letter" style="--i:4">o</span>
+            </h1>
             <p>Análise e otimização de redes de transporte urbano, distribuição de recursos e infraestrutura crítica</p>
         </div>
         
