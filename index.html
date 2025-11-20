@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Otimização de Fluxo em Redes Urbanas</title>
     <style>
+        /* Custom display font: Roundy Rainbows
+           Place font files in: assets/fonts/RoundyRainbows.woff2 (preferred) and/or .woff/.ttf
+           Example paths used below: assets/fonts/RoundyRainbows.woff2
+           If the font files are not present, fall back to the system UI font. */
+        @font-face {
+            font-family: 'RoundyRainbows';
+            src: url('./assets/fonts/RoundyRainbows.woff2') format('woff2'),
+                 url('./assets/fonts/RoundyRainbows.woff') format('woff'),
+                 url('./assets/fonts/RoundyRainbows.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -49,10 +63,13 @@
         }
 
         .header-section h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 400;
             margin-bottom: 8px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            /* Use the Roundy Rainbows display font when available */
+            font-family: 'RoundyRainbows', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 1px;
         }
 
         .header-section p {
@@ -325,7 +342,7 @@
 <body>
     <div id="sidebar">
         <div class="header-section">
-            <h1>🚦 Sistema de Otimização de Fluxo</h1>
+            <h1>fluxo</h1>
             <p>Análise e otimização de redes de transporte urbano, distribuição de recursos e infraestrutura crítica</p>
         </div>
         
